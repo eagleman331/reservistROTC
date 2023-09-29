@@ -28,6 +28,7 @@ enableScreens();
 import Colors from "../constant/Colors";
 
 import HomeScreen from "../screens/HomeScreen";
+import TrainingHome from "../screens/Training/TrainingHome"
 
 import Commander from "../component/Drawer/CommanderScreen/Commander";
 import DeveloperScreen from "../component/Drawer/DeveloperScreen";
@@ -36,6 +37,7 @@ import IndevelopmentScreen from "../component/Drawer/IndevelopmentScreen";
 const HomeNav = createSharedElementStackNavigator();
 const FinalStackNav = createSharedElementStackNavigator();
 const IndevelopmentStackNav = createSharedElementStackNavigator();
+const TrainingStackNav = createSharedElementStackNavigator();
 
 const Tabs = createBottomTabNavigator();
 const Drawer = createDrawerNavigator();
@@ -85,7 +87,13 @@ function HomeStack() {
     </HomeNav.Navigator>
   );
 }
-
+function TrainingStack() {
+  return (
+    <TrainingStackNav.Navigator initialRouteName="Home">
+      <TrainingStackNav.Screen name="TrainingHome" options={options} component={TrainingHome} />
+    </TrainingStackNav.Navigator>
+  );
+}
 
 
 
@@ -109,7 +117,7 @@ function IndevelopmentStack() {
 
 function TabNavigator() {
   return (
-    <Tabs.Navigator initialRouteName="References">
+    <Tabs.Navigator initialRouteName="HomeTab">
       <Tabs.Screen
         name="HomeTab"
         options={{
@@ -120,9 +128,20 @@ function TabNavigator() {
             <FontAwesome name="home" size={30} color="black" />
           ),
         }}
-        component={PhotoStack}
+        component={HomeStack}
       />
-    
+      <Tabs.Screen
+        name="TrainingTab"
+        options={{
+          headerShown: false,
+          tabBarLabel: "Training",
+
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="human-male-board" size={30} color="black" />
+          ),
+        }}
+        component={TrainingStack}
+      />
           
     </Tabs.Navigator>
   );

@@ -6,7 +6,7 @@ import { StyleSheet, Text, View, Button } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 // import AuthContextProvider from "./context/AuthContext";
-// import TaskContextProvider from "./context/TaskContext";
+import TaskContextProvider from "./context/TaskContext";
 import StackNavigator from "./navigation/StackNavigator";
 
 export default function App() {
