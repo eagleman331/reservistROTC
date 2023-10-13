@@ -27,8 +27,13 @@ import { enableScreens } from "react-native-screens";
 enableScreens();
 import Colors from "../constant/Colors";
 
-import HomeScreen from "../screens/HomeScreen";
-import TrainingHome from "../screens/Training/TrainingHome"
+import HomeScreen from "../screens/Home/HomeScreen";
+import EventsScreen from "../screens/Home/EventsScreen";
+import FAQsScreen from "../screens/Home/FAQsScreen";
+import TrendingScreen from "../screens/Home/TrendingScreen";
+import PromoteScreen from "../screens/Home/PromoteScreen";
+
+import TrainingHome from "../screens/Training/TrainingHome";
 
 import Commander from "../component/Drawer/CommanderScreen/Commander";
 import DeveloperScreen from "../component/Drawer/DeveloperScreen";
@@ -82,8 +87,12 @@ const options = () => ({
 
 function HomeStack() {
   return (
-    <HomeNav.Navigator initialRouteName="Home">
+    <HomeNav.Navigator initialRouteName="Events">
       <HomeNav.Screen name="Home" options={options} component={HomeScreen} />
+      <HomeNav.Screen name="Events" options={options} component={EventsScreen} />
+      <HomeNav.Screen name="Trending" options={options} component={TrendingScreen} />
+      <HomeNav.Screen name="FAQS" options={options} component={FAQsScreen} />
+      <HomeNav.Screen name="Promote" options={options} component={PromoteScreen} />
     </HomeNav.Navigator>
   );
 }

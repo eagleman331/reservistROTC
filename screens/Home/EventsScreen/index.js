@@ -6,23 +6,25 @@ const { width, height } = Dimensions.get("window");
 
 const index = ({navigation}) => {
 
-  useLayoutEffect(() => {
+  useLayoutEffect(()=> {
     navigation.setOptions({
       headerShown: false,
-    });
-  }, []);
-
+    })
+  }, [])
   return (
     <SafeAreaView>
-           <StatusBar style="auto" />
-           <Image
-        source={require("../../assets/Drawer/PresidentMarcos.png")}
+       <StatusBar style="auto" />
+         <Image
+        source={require("../../../assets/TestAssets/militaryBackground.png")}
         style={styles.imageBack}
       />
-      <View style={{marginTop:50, marginLeft:50}}>
-      <Text style={{color:"white", fontSize:40}}>Home</Text>
+      <View style={{backgroundColor:"red", width, height:height*.6, position:"absolute", top:300, borderRadius:35}}>
+      <View style={{marginTop:15, marginLeft:15}}>
+      <Text style={{color:"white"}}>Events</Text>
       </View>
     
+      </View>
+
     </SafeAreaView>
   )
 }
@@ -30,7 +32,6 @@ const index = ({navigation}) => {
 export default index
 
 const styles = StyleSheet.create({
-
   imageBack: {
     position: "absolute",
     left: 0,

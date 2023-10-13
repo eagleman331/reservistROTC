@@ -2,12 +2,12 @@
   "expo": {
     "name": "ReservistMobile",
     "slug": "ReservistMobile",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/Logo/SaluteSoldier.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/Logo/SaluteSoldier.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -18,8 +18,12 @@
       "supportsTablet": true
     },
     "android": {
+      "versionCode": 2,
+      "permissions" : [],
+      "useNextNotificationsApi": true,
+      "multiDexEnabled": true,
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/Logo/SaluteSoldier.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.eagleman33.ReservistMobile"
