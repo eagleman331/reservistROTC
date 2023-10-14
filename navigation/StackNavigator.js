@@ -87,9 +87,15 @@ const options = () => ({
 
 function HomeStack() {
   return (
-    <HomeNav.Navigator initialRouteName="Events">
+    <HomeNav.Navigator initialRouteName="Home">
       <HomeNav.Screen name="Home" options={options} component={HomeScreen} />
-      <HomeNav.Screen name="Events" options={options} component={EventsScreen} />
+      <HomeNav.Screen name="Events" options={options} 
+       sharedElements={(route, otherRoute, showing) => {
+        const { item } = route.params;
+        return [`item.${item.id}.photo`, `item.${item.id}.content`];
+      }}
+      
+      component={EventsScreen} />
       <HomeNav.Screen name="Trending" options={options} component={TrendingScreen} />
       <HomeNav.Screen name="FAQS" options={options} component={FAQsScreen} />
       <HomeNav.Screen name="Promote" options={options} component={PromoteScreen} />
