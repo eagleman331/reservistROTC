@@ -12,7 +12,8 @@ import { SharedElement } from "react-navigation-shared-element";
 
 const { width, height } = Dimensions.get("window");
 
-const index = ({ navigation }) => {
+const index = ({ navigation, route }) => {
+  const { item } = route.params;
   useLayoutEffect(() => {
     navigation.setOptions({
       headerShown: false,
@@ -21,21 +22,21 @@ const index = ({ navigation }) => {
   return (
     <SafeAreaView>
       <StatusBar style="auto" />
-      <Image
+      {/* <Image
         source={require("../../../assets/TestAssets/militaryBackground.png")}
         style={styles.imageBack}
-      />
-      {/* <SharedElement
+      /> */}
+      <SharedElement
         id={`item.${item.id}.photo`}
         style={[StyleSheet.absoluteFillObject]}
       >
         <View style={[{ height: height, width: width }]}>
           <Image
-            source={{ uri: item.image }}
+            source={{ uri: item.photo }}
             style={[StyleSheet.absoluteFillObject, { resizeMode: "cover" }]}
           />
         </View>
-      </SharedElement> */}
+      </SharedElement>
       <View
         style={{
           backgroundColor: "red",

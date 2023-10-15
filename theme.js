@@ -8,7 +8,7 @@ const s = width * 0.5;
 export const tutorialSpec = {
     ITEM_WIDTH: s,
     ITEM_HEIGHT: s * 1.5,
-    RADIUS: 18,
+    RADIUS: 10,
     SPACING,
     FULL_SIZE: s + SPACING * 2,
 }

@@ -132,7 +132,7 @@ function IndevelopmentStack() {
 
 function TabNavigator() {
   return (
-    <Tabs.Navigator initialRouteName="HomeTab">
+    <Tabs.Navigator initialRouteName="TrainingTab">
       <Tabs.Screen
         name="HomeTab"
         options={{

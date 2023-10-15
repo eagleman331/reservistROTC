@@ -1,4 +1,5 @@
 import {
+  Animated,
   Dimensions,
   FlatList,
   Image,
@@ -25,8 +26,8 @@ const index = ({ navigation }) => {
     });
   }, []);
 
-  const Onclick_Activity = () => {
-    navigation.navigate("Events");
+  const Onclick_Activity = (item) => {
+    navigation.navigate("Events", {item});
   };
   const Onclick_Trends = () => {
     navigation.navigate("Trending");
@@ -51,8 +52,8 @@ const index = ({ navigation }) => {
             <Text style={{ color: "white", fontSize: 40 }}>Home</Text>
           </View>
 
-          <View style={[styles.eventSlides, { marginBottom: 20 }]}>
-            <View style={{ marginBottom: 10 }}>
+          <View style={[styles.eventSlides, ]}>
+            <View >
               <Text style={{ color: "white" }}>Events</Text>
             </View>
             <View>
@@ -77,22 +78,26 @@ const index = ({ navigation }) => {
                 // ref={slidesRef}
                 renderItem={({ item, index }) => {
                   let reqSentence = item.requirements;
+
+                  // const scale = scrollX.interpolate({
+                  //   inputRange,
+                  //   outputRange: [1, 1.1, 1],
+                  // });
                   return (
                     <TouchableOpacity
-                      onPress={Onclick_Activity}
+                      onPress={Onclick_Activity(item)}
                       style={styles.itemContainer}
                     >
-                      <View
+                      {/* <View
                         style={[
                           StyleSheet.absoluteFillObject,
                           {
                             backgroundColor: "red",
-                            marginLeft: 20,
                             borderRadius: 5,
                           },
                         ]}
-                      >
-                        {/* <SharedElement
+                      > </View> */}
+                        <SharedElement
                           id={`item.${item.id}.photo`}
                           style={[StyleSheet.absoluteFillObject]}
                         >
@@ -103,15 +108,17 @@ const index = ({ navigation }) => {
                             ]}
                           >
                             <Animated.Image
-                              source={{ uri: item.image }}
+                              source={{ uri: item.photo }}
                               style={[
                                 StyleSheet.absoluteFillObject,
-                                { resizeMode: "cover", transform: [{ scale }] },
+                                { resizeMode: "cover",
+                                // transform: [{ scale }] 
+                              },
                               ]}
                             />
                           </View>
-                        </SharedElement> */}
-                      </View>
+                        </SharedElement>
+                     
                     </TouchableOpacity>
                   );
                 }}
@@ -119,9 +126,9 @@ const index = ({ navigation }) => {
             </View>
           </View>
 
-          <View style={[styles.ROTCSlides, { marginBottom: 20 }]}>
+          <View style={[styles.ROTCSlides, { marginBottom: 10 }]}>
             <View style={{ marginBottom: 10 }}>
-              <Text style={{ color: "white" }}>Treding</Text>
+              <Text style={{ color: "white" }}>Trending</Text>
             </View>
             <View>
               <FlatList
@@ -163,7 +170,7 @@ const index = ({ navigation }) => {
             </View>
           </View>
 
-          <View style={[styles.activitySlides, { marginBottom: 20 }]}>
+          <View style={[styles.activitySlides, { marginBottom: 10 }]}>
             <View style={{ marginBottom: 10 }}>
               <Text style={{ color: "white" }}>FAQs</Text>
             </View>
@@ -240,7 +247,7 @@ const index = ({ navigation }) => {
                           height: width * 0.5,
                           width: width * 0.4,
                           backgroundColor: "red",
-                          marginLeft: 20,
+                          marginLeft: SPACING,
                           borderRadius: 5,
                         }}
                       ></View>
@@ -270,7 +277,7 @@ const styles = StyleSheet.create({
   },
   itemContainer: {
     width: ITEM_WIDTH,
-    height: ITEM_HEIGHT,
+    height: ITEM_HEIGHT * 0.5,
     margin: SPACING,
   },
 });
