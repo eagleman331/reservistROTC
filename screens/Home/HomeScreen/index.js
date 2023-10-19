@@ -27,7 +27,7 @@ const index = ({ navigation }) => {
   }, []);
 
   const Onclick_Activity = (item) => {
-    navigation.navigate("Events", {item});
+    navigation.navigate("Events", { item });
   };
   const Onclick_Trends = () => {
     navigation.navigate("Trending");
@@ -52,8 +52,8 @@ const index = ({ navigation }) => {
             <Text style={{ color: "white", fontSize: 40 }}>Home</Text>
           </View>
 
-          <View style={[styles.eventSlides, ]}>
-            <View >
+          <View style={[styles.eventSlides]}>
+            <View>
               <Text style={{ color: "white" }}>Events</Text>
             </View>
             <View>
@@ -85,7 +85,9 @@ const index = ({ navigation }) => {
                   // });
                   return (
                     <TouchableOpacity
-                      onPress={Onclick_Activity(item)}
+                      onPress={() => {
+                        Onclick_Activity(item);
+                      }}
                       style={styles.itemContainer}
                     >
                       {/* <View
@@ -97,28 +99,28 @@ const index = ({ navigation }) => {
                           },
                         ]}
                       > </View> */}
-                        <SharedElement
-                          id={`item.${item.id}.photo`}
-                          style={[StyleSheet.absoluteFillObject]}
+                      <SharedElement
+                        id={`item.${item.id}.photo`}
+                        style={[StyleSheet.absoluteFillObject]}
+                      >
+                        <View
+                          style={[
+                            StyleSheet.absoluteFillObject,
+                            { overflow: "hidden", borderRadius: RADIUS },
+                          ]}
                         >
-                          <View
+                          <Animated.Image
+                            source={{ uri: item.photo }}
                             style={[
                               StyleSheet.absoluteFillObject,
-                              { overflow: "hidden", borderRadius: RADIUS },
-                            ]}
-                          >
-                            <Animated.Image
-                              source={{ uri: item.photo }}
-                              style={[
-                                StyleSheet.absoluteFillObject,
-                                { resizeMode: "cover",
-                                // transform: [{ scale }] 
+                              {
+                                resizeMode: "cover",
+                                // transform: [{ scale }]
                               },
-                              ]}
-                            />
-                          </View>
-                        </SharedElement>
-                     
+                            ]}
+                          />
+                        </View>
+                      </SharedElement>
                     </TouchableOpacity>
                   );
                 }}

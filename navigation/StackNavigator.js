@@ -90,10 +90,10 @@ function HomeStack() {
     <HomeNav.Navigator initialRouteName="Home">
       <HomeNav.Screen name="Home" options={options} component={HomeScreen} />
       <HomeNav.Screen name="Events" options={options} 
-       sharedElements={(route, otherRoute, showing) => {
-        const { item } = route.params;
-        return [`item.${item.id}.photo`, `item.${item.id}.content`];
-      }}
+      //  sharedElements={(route, otherRoute, showing) => {
+      //   const { item } = route.params;
+      //   return [`item.${item.id}.photo`, `item.${item.id}.content`];
+      // }}
       
       component={EventsScreen} />
       <HomeNav.Screen name="Trending" options={options} component={TrendingScreen} />
@@ -132,7 +132,7 @@ function IndevelopmentStack() {
 
 function TabNavigator() {
   return (
-    <Tabs.Navigator initialRouteName="TrainingTab">
+    <Tabs.Navigator initialRouteName="HomeTab">
       <Tabs.Screen
         name="HomeTab"
         options={{
