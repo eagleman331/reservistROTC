@@ -25,20 +25,9 @@ const index = () => {
 
   return (
     <View
-      style={{
-        width: width * 0.9,
-        height: height * 0.1,
-        // backgroundColor: "red",
-        alignSelf: "center",
-        borderRadius: 10,
-        marginTop: 40,
-        flexDirection: "row",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
+    
     >
-      <TouchableOpacity onPress={() => navigation.openDrawer()}>
-        <View>
+      <TouchableOpacity   style={styles.containerBackButton} >
         <Icon
           raised
           reverse
@@ -48,7 +37,6 @@ const index = () => {
           color={Colors.gray}
           onPress={() => navigation.goBack()}
         />
-        </View>
       </TouchableOpacity>
     </View>
   );
@@ -57,12 +45,13 @@ const index = () => {
 export default index;
 
 const styles = StyleSheet.create({
-  imageLogo: {
-    height: height * 0.08,
-    width: height * 0.08,
-
-    marginLeft: 30,
-
+  containerBackButton: {
+    marginTop: 30,
+    paddingLeft:15,
+    position:"absolute"
+    
+  },
+  button:{
     shadowColor: "#000000",
     shadowOffset: {
       width: 0,
@@ -71,5 +60,5 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 20.0,
     elevation: 24,
-  },
+  }
 });

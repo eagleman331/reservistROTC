@@ -20,5 +20,33 @@ export const PushUpData = [
         photo:"https://images.unsplash.com/photo-1593800026718-93dc58b654d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
         content:"White T-Shirt, shorts and Rubber Shoes"
     },
+    {
+        id:"4",
+        title: "Uniform",  
+        image:"https://cdn-icons-png.flaticon.com/512/1845/1845841.png",
+        photo:"https://images.unsplash.com/photo-1593800026718-93dc58b654d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        content:"White T-Shirt, shorts and Rubber Shoes"
+    },
+    {
+        id:"5",
+        title: "Uniform",  
+        image:"https://cdn-icons-png.flaticon.com/512/1845/1845841.png",
+        photo:"https://images.unsplash.com/photo-1593800026718-93dc58b654d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        content:"White T-Shirt, shorts and Rubber Shoes"
+    },
+    {
+        id:"6",
+        title: "Uniform 6",  
+        image:"https://cdn-icons-png.flaticon.com/512/1845/1845841.png",
+        photo:"https://images.unsplash.com/photo-1593800026718-93dc58b654d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        content:"White T-Shirt, shorts and Rubber Shoes"
+    },
+    {
+        id:"7",
+        title: "Last Title ------>>",  
+        image:"https://cdn-icons-png.flaticon.com/512/1845/1845841.png",
+        photo:"https://images.unsplash.com/photo-1593800026718-93dc58b654d0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+        content:"White T-Shirt, shorts and Rubber Shoes"
+    },
 
 ]

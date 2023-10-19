@@ -6,9 +6,10 @@ import {
   SafeAreaView,
   ScrollView,
   StyleSheet,
-  Text,
   View,
 } from "react-native";
+
+import { Text } from '@rneui/themed';
 import React, { useLayoutEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { PushUpData } from "../../../testFiles/DataSlides/PftSlidesFAQs/Push-UpFAQs";
@@ -26,8 +27,8 @@ const index = ({ navigation }) => {
     });
   }, []);
 
-  const Onclick_Activity = (item) => {
-    navigation.navigate("Events", { item });
+  const Onclick_Card = (item, cardData) => {
+    navigation.navigate(cardData, { item });
   };
   const Onclick_Trends = () => {
     navigation.navigate("Trending");
@@ -49,7 +50,8 @@ const index = ({ navigation }) => {
       <ScrollView>
         <View>
           <View style={{ marginTop: 50, marginLeft: 50 }}>
-            <Text style={{ color: "white", fontSize: 40 }}>Home</Text>
+            <Text style={{ color: "white", fontSize: 40,  fontFamily: 'Nunito-SemiBold',
+      fontWeight: '300', }}>Home</Text>
           </View>
 
           <View style={[styles.eventSlides]}>
@@ -76,6 +78,7 @@ const index = ({ navigation }) => {
                 // )}
                 // onViewableItemsChanged={viewableItemsChanged}
                 // ref={slidesRef}
+               
                 renderItem={({ item, index }) => {
                   let reqSentence = item.requirements;
 
@@ -83,10 +86,11 @@ const index = ({ navigation }) => {
                   //   inputRange,
                   //   outputRange: [1, 1.1, 1],
                   // });
+                  let cardData = "Events"
                   return (
                     <TouchableOpacity
                       onPress={() => {
-                        Onclick_Activity(item);
+                        Onclick_Card(item, cardData);
                       }}
                       style={styles.itemContainer}
                     >
@@ -154,18 +158,46 @@ const index = ({ navigation }) => {
                 // ref={slidesRef}
                 renderItem={({ item, index }) => {
                   let reqSentence = item.requirements;
+                  let cardData = "Trending"
                   return (
-                    <TouchableOpacity onPress={Onclick_Trends}>
-                      <View
-                        style={{
-                          height: width * 0.45,
-                          width: width * 0.6,
+                    <TouchableOpacity
+                    onPress={() => {
+                      Onclick_Card(item, cardData);
+                    }}
+                    style={[styles.itemContainer, {width:width* .6, height: width* .5}]}
+                  >
+                    {/* <View
+                      style={[
+                        StyleSheet.absoluteFillObject,
+                        {
                           backgroundColor: "red",
-                          marginLeft: 20,
                           borderRadius: 5,
-                        }}
-                      ></View>
-                    </TouchableOpacity>
+                        },
+                      ]}
+                    > </View> */}
+                    <SharedElement
+                      id={`item.${item.id}.photo`}
+                      style={[StyleSheet.absoluteFillObject]}
+                    >
+                      <View
+                        style={[
+                          StyleSheet.absoluteFillObject,
+                          { overflow: "hidden", borderRadius: RADIUS },
+                        ]}
+                      >
+                        <Animated.Image
+                          source={{ uri: item.photo }}
+                          style={[
+                            StyleSheet.absoluteFillObject,
+                            {
+                              resizeMode: "cover",
+                              // transform: [{ scale }]
+                            },
+                          ]}
+                        />
+                      </View>
+                    </SharedElement>
+                  </TouchableOpacity>
                   );
                 }}
               />
@@ -198,18 +230,46 @@ const index = ({ navigation }) => {
                 // ref={slidesRef}
                 renderItem={({ item, index }) => {
                   let reqSentence = item.requirements;
+                  let cardData = "FAQS"
                   return (
-                    <TouchableOpacity onPress={Onclick_FAQS}>
-                      <View
-                        style={{
-                          height: width * 0.3,
-                          width: width * 0.4,
+                    <TouchableOpacity
+                    onPress={() => {
+                      Onclick_Card(item, cardData);
+                    }}
+                    style={styles.itemContainer}
+                  >
+                    {/* <View
+                      style={[
+                        StyleSheet.absoluteFillObject,
+                        {
                           backgroundColor: "red",
-                          marginLeft: 20,
                           borderRadius: 5,
-                        }}
-                      ></View>
-                    </TouchableOpacity>
+                        },
+                      ]}
+                    > </View> */}
+                    <SharedElement
+                      id={`item.${item.id}.photo`}
+                      style={[StyleSheet.absoluteFillObject]}
+                    >
+                      <View
+                        style={[
+                          StyleSheet.absoluteFillObject,
+                          { overflow: "hidden", borderRadius: RADIUS },
+                        ]}
+                      >
+                        <Animated.Image
+                          source={{ uri: item.photo }}
+                          style={[
+                            StyleSheet.absoluteFillObject,
+                            {
+                              resizeMode: "cover",
+                              // transform: [{ scale }]
+                            },
+                          ]}
+                        />
+                      </View>
+                    </SharedElement>
+                  </TouchableOpacity>
                   );
                 }}
               />
@@ -242,18 +302,46 @@ const index = ({ navigation }) => {
                 // ref={slidesRef}
                 renderItem={({ item, index }) => {
                   let reqSentence = item.requirements;
+                  let cardData = "Promote"
                   return (
-                    <TouchableOpacity onPress={Onclick_Promote}>
-                      <View
-                        style={{
-                          height: width * 0.5,
-                          width: width * 0.4,
+                    <TouchableOpacity
+                    onPress={() => {
+                      Onclick_Card(item, cardData);
+                    }}
+                    style={[styles.itemContainer, {height:width* .5, width: width * .4}]}
+                  >
+                    {/* <View
+                      style={[
+                        StyleSheet.absoluteFillObject,
+                        {
                           backgroundColor: "red",
-                          marginLeft: SPACING,
                           borderRadius: 5,
-                        }}
-                      ></View>
-                    </TouchableOpacity>
+                        },
+                      ]}
+                    > </View> */}
+                    <SharedElement
+                      id={`item.${item.id}.photo`}
+                      style={[StyleSheet.absoluteFillObject]}
+                    >
+                      <View
+                        style={[
+                          StyleSheet.absoluteFillObject,
+                          { overflow: "hidden", borderRadius: RADIUS },
+                        ]}
+                      >
+                        <Animated.Image
+                          source={{ uri: item.photo }}
+                          style={[
+                            StyleSheet.absoluteFillObject,
+                            {
+                              resizeMode: "cover",
+                              // transform: [{ scale }]
+                            },
+                          ]}
+                        />
+                      </View>
+                    </SharedElement>
+                  </TouchableOpacity>
                   );
                 }}
               />
