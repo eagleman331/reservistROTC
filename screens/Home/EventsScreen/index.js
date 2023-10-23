@@ -38,7 +38,7 @@ const index = ({ navigation, route }) => {
       <View style={{ flexDirection: "row" }}>
         <View style={[{ height: height * 0.4, width: width }]}>
           <SharedElement
-            id={`item.photo`}
+            id={`item.${item.id}.photo`}
             style={[StyleSheet.absoluteFillObject, { resizeMode: "cover" }]}
           >
             <Image

@@ -126,7 +126,7 @@ const index = ({ navigation }) => {
                         ]}
                       >
                         <SharedElement
-                          id={`item.photo`}
+                          id={`item.${item.id}.photo`}
                           style={[
                             StyleSheet.absoluteFillObject,
                             { resizeMode: "cover" },
@@ -193,19 +193,8 @@ const index = ({ navigation }) => {
                         { width: width * 0.6, height: width * 0.5 },
                       ]}
                     >
-                      {/* <View
-                      style={[
-                        StyleSheet.absoluteFillObject,
-                        {
-                          backgroundColor: "red",
-                          borderRadius: 5,
-                        },
-                      ]}
-                    > </View> */}
-                      <SharedElement
-                        id={`item.${item.id}.photo`}
-                        style={[StyleSheet.absoluteFillObject]}
-                      >
+                     
+                     
                         <View
                           style={[
                             StyleSheet.absoluteFillObject,
@@ -223,7 +212,7 @@ const index = ({ navigation }) => {
                             ]}
                           />
                         </View>
-                      </SharedElement>
+                  
                     </TouchableOpacity>
                   );
                 }}
@@ -282,10 +271,7 @@ const index = ({ navigation }) => {
                         },
                       ]}
                     > </View> */}
-                      <SharedElement
-                        id={`item.${item.id}.photo`}
-                        style={[StyleSheet.absoluteFillObject]}
-                      >
+                    
                         <View
                           style={[
                             StyleSheet.absoluteFillObject,
@@ -303,7 +289,7 @@ const index = ({ navigation }) => {
                             ]}
                           />
                         </View>
-                      </SharedElement>
+                    
                     </TouchableOpacity>
                   );
                 }}
@@ -365,10 +351,7 @@ const index = ({ navigation }) => {
                         },
                       ]}
                     > </View> */}
-                      <SharedElement
-                        id={`item.${item.id}.photo`}
-                        style={[StyleSheet.absoluteFillObject]}
-                      >
+                    
                         <View
                           style={[
                             StyleSheet.absoluteFillObject,
@@ -386,7 +369,7 @@ const index = ({ navigation }) => {
                             ]}
                           />
                         </View>
-                      </SharedElement>
+                      
                     </TouchableOpacity>
                   );
                 }}

@@ -92,11 +92,16 @@ function HomeStack() {
       <HomeNav.Screen name="Events" options={options} 
        sharedElements={(route, otherRoute, showing) => {
         const { item } = route.params;
-        return [`item.photo`, `item.${item.id}.content`, `item.cardData`];
+        return [`item.${item.id}.photo`, `item.${item.id}.content`, `item.cardData`];
       }}
       
       component={EventsScreen} />
-      <HomeNav.Screen name="Trending" options={options} component={TrendingScreen} />
+      <HomeNav.Screen name="Trending" options={options}
+       sharedElements={(route, otherRoute, showing) => {
+        const { item } = route.params;
+        return [`item.${item.id}.photo`, `item.${item.id}.content`, `item.cardData`];
+      }}
+      component={TrendingScreen} />
       <HomeNav.Screen name="FAQS" options={options} component={FAQsScreen} />
       <HomeNav.Screen name="Promote" options={options} component={PromoteScreen} />
     </HomeNav.Navigator>
