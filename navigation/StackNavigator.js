@@ -90,10 +90,10 @@ function HomeStack() {
     <HomeNav.Navigator initialRouteName="Home">
       <HomeNav.Screen name="Home" options={options} component={HomeScreen} />
       <HomeNav.Screen name="Events" options={options} 
-      //  sharedElements={(route, otherRoute, showing) => {
-      //   const { item } = route.params;
-      //   return [`item.${item.id}.photo`, `item.${item.id}.content`];
-      // }}
+       sharedElements={(route, otherRoute, showing) => {
+        const { item } = route.params;
+        return [`item.photo`, `item.${item.id}.content`, `item.cardData`];
+      }}
       
       component={EventsScreen} />
       <HomeNav.Screen name="Trending" options={options} component={TrendingScreen} />
