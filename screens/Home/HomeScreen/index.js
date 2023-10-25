@@ -193,7 +193,15 @@ const index = ({ navigation }) => {
                         { width: width * 0.6, height: width * 0.5 },
                       ]}
                     >
-                     
+                      {/* <View
+                      style={[
+                        StyleSheet.absoluteFillObject,
+                        {
+                          backgroundColor: "red",
+                          borderRadius: 5,
+                        },
+                      ]}
+                    > </View> */}
                      
                         <View
                           style={[
@@ -262,20 +270,22 @@ const index = ({ navigation }) => {
                       }}
                       style={styles.itemContainer}
                     >
-                      {/* <View
-                      style={[
-                        StyleSheet.absoluteFillObject,
-                        {
-                          backgroundColor: "red",
-                          borderRadius: 5,
-                        },
-                      ]}
-                    > </View> */}
+                    
                     
                         <View
                           style={[
                             StyleSheet.absoluteFillObject,
                             { overflow: "hidden", borderRadius: RADIUS },
+                          ]}
+                        >
+                          <SharedElement
+                          id={`itemFAQs.${item.id}.photo`}
+                          style={[
+                            StyleSheet.absoluteFillObject,
+                            {
+                              resizeMode: "cover",
+                              // transform: [{ scale }]
+                            },
                           ]}
                         >
                           <Animated.Image
@@ -288,6 +298,9 @@ const index = ({ navigation }) => {
                               },
                             ]}
                           />
+
+
+                        </SharedElement>
                         </View>
                     
                     </TouchableOpacity>

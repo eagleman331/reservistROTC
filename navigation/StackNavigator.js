@@ -89,38 +89,56 @@ function HomeStack() {
   return (
     <HomeNav.Navigator initialRouteName="Home">
       <HomeNav.Screen name="Home" options={options} component={HomeScreen} />
-      <HomeNav.Screen name="Events" options={options} 
-       sharedElements={(route, otherRoute, showing) => {
-        const { item } = route.params;
-        return [`item.${item.id}.photo`, `item.${item.id}.content`, `item.cardData`];
-      }}
-      
-      component={EventsScreen} />
-      <HomeNav.Screen name="Trending" options={options}
-       sharedElements={(route, otherRoute, showing) => {
-        const { item } = route.params;
-        return [`item.${item.id}.photo`, `item.${item.id}.content`, `item.cardData`];
-      }}
-      component={TrendingScreen} />
-      <HomeNav.Screen name="FAQS" options={options} component={FAQsScreen} />
-      <HomeNav.Screen name="Promote" options={options} component={PromoteScreen} />
+      <HomeNav.Screen
+        name="Events"
+        options={options}
+        sharedElements={(route, otherRoute, showing) => {
+          const { item } = route.params;
+          return [
+            `item.${item.id}.photo`,
+            `item.${item.id}.content`,
+            `item.cardData`,
+          ];
+        }}
+        component={EventsScreen}
+      />
+      <HomeNav.Screen
+        name="Trending"
+        options={options}
+        component={TrendingScreen}
+      />
+      <HomeNav.Screen
+        name="FAQS"
+        options={options}
+        sharedElements={(route, otherRoute, showing) => {
+          const { item } = route.params;
+          return [
+            `itemFAQs.${item.id}.photo`,
+            `itemFAQs.${item.id}.content`,
+            `itemFAQs.cardData`,
+          ];
+        }}
+        component={FAQsScreen}
+      />
+      <HomeNav.Screen
+        name="Promote"
+        options={options}
+        component={PromoteScreen}
+      />
     </HomeNav.Navigator>
   );
 }
 function TrainingStack() {
   return (
     <TrainingStackNav.Navigator initialRouteName="Home">
-      <TrainingStackNav.Screen name="TrainingHome" options={options} component={TrainingHome} />
+      <TrainingStackNav.Screen
+        name="TrainingHome"
+        options={options}
+        component={TrainingHome}
+      />
     </TrainingStackNav.Navigator>
   );
 }
-
-
-
-
-
-
-
 
 function IndevelopmentStack() {
   return (
@@ -130,7 +148,6 @@ function IndevelopmentStack() {
         //  options={options}
         component={IndevelopmentScreen}
       />
-   
     </IndevelopmentStackNav.Navigator>
   );
 }
@@ -157,26 +174,26 @@ function TabNavigator() {
           tabBarLabel: "Training",
 
           tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="human-male-board" size={30} color="black" />
+            <MaterialCommunityIcons
+              name="human-male-board"
+              size={30}
+              color="black"
+            />
           ),
         }}
         component={TrainingStack}
       />
-          
     </Tabs.Navigator>
   );
 }
 const FinalNavigator = () => {
-
   return (
     <FinalStackNav.Navigator>
-     
-        <FinalStackNav.Screen
-          name="HomeTabnavigator"
-          options={{ headerShown: false }}
-          component={TabNavigator}
-        />
-     
+      <FinalStackNav.Screen
+        name="HomeTabnavigator"
+        options={{ headerShown: false }}
+        component={TabNavigator}
+      />
     </FinalStackNav.Navigator>
   );
 };
@@ -204,17 +221,17 @@ const StackNavigator = () => {
         }}
         component={FinalNavigator}
       />
-        <Drawer.Screen
+      <Drawer.Screen
         name="Commander"
         options={{ headerShown: false, drawerLabel: "President Duterte" }}
         component={Commander}
       />
-       <Drawer.Screen
+      <Drawer.Screen
         name="Developer"
         options={{ headerShown: false, drawerLabel: "App Developer" }}
         component={DeveloperScreen}
       />
-        <Drawer.Screen
+      <Drawer.Screen
         name="Indevelopment"
         options={{ headerShown: false, drawerLabel: "Indevelopment" }}
         component={IndevelopmentStack}
